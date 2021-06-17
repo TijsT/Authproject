@@ -25,10 +25,13 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required',
             'content' => 'required',
-            
         ]);
 
-        Post::create($request->all());
+        Post::create([
+            'title' => request('title'),
+            'content' => request('content'),
+            'user_id' => auth()->id()
+        ]);
 
         return redirect()->route('posts.index')
                         ->with('success','Post created successfully.');
