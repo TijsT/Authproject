@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => 'https://authproject1.herokuapp.com'
+    'url' => env('APP_URL', 'https://authproject1.herokuapp.com'),
 
     'asset_url' => env('ASSET_URL', null),
 
