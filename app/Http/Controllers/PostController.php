@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+Use App\Rules\Forms;
+Use App\Rules\Uppercase;
 
 class PostController extends Controller
 {
@@ -23,7 +25,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
+            'title' => 'required|alpha',
             'content' => 'required',
         ]);
 
